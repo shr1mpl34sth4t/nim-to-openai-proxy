@@ -153,8 +153,8 @@ function normalizeNonStreamChoice(choice, model) {
 // Valid reasoning_effort values per model, where NIM enforces an enum.
 // Values outside the set are dropped with a warning rather than forwarded.
 const REASONING_EFFORT_ENUMS = {
-  'openai/gpt-oss-120b': ['low', 'medium', 'high'],
-  'openai/gpt-oss-20b': ['low', 'medium', 'high'],
+  'z-ai/glm-5.3-flash': ['low', 'high', 'max'],
+  'z-ai/glm-5.3': ['low', 'high', 'max'],
   'deepseek-ai/deepseek-v4-flash-0731': ['low', 'high', 'max'],
   'deepseek-ai/deepseek-v4-pro-0813': ['low', 'high', 'max'],
   'nvidia/nemotron-3-super-120b-a12b': ['low'],
@@ -232,11 +232,11 @@ function getReasoningPayload(model, enableThinking, clientReasoningEffort, hasTo
       };
     }
 
-    case 'openai/gpt-oss-120b':
-    case 'openai/gpt-oss-20b': {
+    case 'z-ai/glm-5.3-flash':
+    case 'z-ai/glm-5.3': {
       if (effort) return { reasoning_effort: effort };
       if (enableThinking) return { reasoning_effort: 'high' };
-      return {};
+      return { reasoning_effort: 'low' }; // GLM 5.3 cannot turn off, fallback to low
     }
 
     case 'google/gemma-4-31b-it': {
