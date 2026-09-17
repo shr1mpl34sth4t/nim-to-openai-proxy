@@ -72,7 +72,7 @@ const MODEL_MAPPING = {
   'gpt-3.5': 'nvidia/nemotron-3-nano-omni-30b-a3b-reasoning', // was qwen/qwen3.5-397b-a17b
   'gpt-4-turbo': 'moonshotai/kimi-k3',
   'claude-3-opus': 'google/diffusiongemma-26b-a4b-it',
-  'claude-3-sonnet': 'z-ai/glm-5.3',
+  'claude-3-sonnet': 'z-ai/glm-5.3-flash',
   'gemini-pro': 'nvidia/llama-3.1-nemotron-70b-instruct', // was nvidia/llama-3.3-nemotron-super-49b-v1.5
   'gemini-turbo': 'nvidia/llama3-chatqa-1.5-70b', // was meta/llama-3.3-70b-instruct
   'gpt-3.5o': 'nvidia/nemotron-3.5-lightning-30b-a3b', // was google/gemma-2b
